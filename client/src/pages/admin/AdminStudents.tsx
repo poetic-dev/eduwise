@@ -2,8 +2,7 @@ import { useEffect, useState, type SubmitEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
-import {
-  Button,
+import { Button,
   Input,
   Card,
   CardContent,
@@ -21,8 +20,7 @@ import {
   PaginationContent,
   PaginationItem,
   PaginationPrevious,
-  PaginationNext,
-} from "@arcevo/facet-components";
+  PaginationNext, Spinner } from "@arcevo/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import type { UserRole } from "@/types";
 
@@ -145,7 +143,7 @@ export default function AdminStudents() {
         <CardContent className="pt-6">
           {loading ? (
             <div className="flex items-center justify-center py-16 text-muted-foreground">
-              <GeneratedIcon name="loader-circle" size={20} className="animate-spin mr-2" />
+              <Spinner className="mr-2" />
               Loading students…
             </div>
           ) : !data || data.students.length === 0 ? (

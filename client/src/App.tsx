@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Spinner } from "@arcevo/facet-components";
 import { useState, useEffect, type ReactNode } from "react";
 import { useAuth } from "./context/AuthContext";
 import { useResumeStep } from "./hooks/useResumeStep";
@@ -46,7 +47,7 @@ function PublicRoute({ children }: { children: ReactNode }) {
     if (!studentLanding) {
       return (
         <div className="flex min-h-[50vh] items-center justify-center">
-          <span className="h-6 w-6 animate-spin rounded-full border-2 border-muted border-t-primary" />
+          <Spinner variant="muted" />
         </div>
       );
     }

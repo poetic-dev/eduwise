@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
-import ThemeToggle from "./ThemeToggle";
 import BrandLogo from "./BrandLogo";
 import AccountMenu from "./AccountMenu";
-import { Navbar, Button } from "@arcevo/facet-components";
+import { Navbar, Button, ThemeToggle } from "@arcevo/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 /** react-router adapter so the facet Navbar renders SPA links. */
@@ -83,13 +82,9 @@ export default function SiteNav() {
               <Button asChild variant="ghost" size="sm">
                 <Link to="/register">Create account</Link>
               </Button>
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
-              >
+              <Button type="button" variant="ghost" size="sm" onClick={handleLogout}>
                 Exit guest
-              </button>
+              </Button>
             </>
           ) : (
             <AccountMenu />
@@ -138,14 +133,16 @@ export default function SiteNav() {
             <GeneratedIcon name="arrow-right" size={16} />
             Create account
           </FacetLink>
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="sm"
             onClick={handleLogout}
-            className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-destructive hover:bg-destructive/10"
+            className="w-full justify-start text-destructive hover:bg-destructive/10 hover:text-destructive"
           >
             <GeneratedIcon name="logout" size={16} />
             Exit guest session
-          </button>
+          </Button>
         </>
       ) : (
         <>

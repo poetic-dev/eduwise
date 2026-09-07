@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
-import {
-  Alert,
+import { Alert,
   AlertDescription,
   Card,
   CardContent,
@@ -30,8 +29,7 @@ import {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-  DialogClose,
-} from "@arcevo/facet-components";
+  DialogClose, Spinner } from "@arcevo/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 import type { ClearHistoryResponse, RecommendationHistoryResponse, Stream } from "@/types/index";
 
@@ -126,7 +124,7 @@ export default function History() {
         <CardContent>
           {loading ? (
             <div className="flex items-center justify-center py-16 text-muted-foreground">
-              <GeneratedIcon name="loader-circle" size={20} className="animate-spin mr-2" />
+              <Spinner className="mr-2" />
               Loading history…
             </div>
           ) : !data || data.history.length === 0 ? (
@@ -237,7 +235,7 @@ export default function History() {
                   </Button>
                 </DialogClose>
                 <Button variant="destructive" disabled={clearing} onClick={handleClearHistory}>
-                  {clearing ? <GeneratedIcon name="loader-circle" size={14} className="animate-spin" /> : <GeneratedIcon name="trash" size={14} />}
+                  {clearing ? <Spinner size="sm" /> : <GeneratedIcon name="trash" size={14} />}
                   Clear history
                 </Button>
               </DialogFooter>

@@ -1,8 +1,7 @@
 import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import BrandLogo from "@/components/BrandLogo";
-import ThemeToggle from "@/components/ThemeToggle";
-import { Button } from "@arcevo/facet-components";
+import { Button, ThemeToggle } from "@arcevo/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import { api } from "@/api";
 

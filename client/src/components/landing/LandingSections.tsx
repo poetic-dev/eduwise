@@ -1,4 +1,10 @@
-import { Card, CardContent } from "@arcevo/facet-components";
+import {
+  Card,
+  CardContent,
+  FadeUpText,
+  HoverScaleCard,
+  SplitText,
+} from "@arcevo/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import { FEATURES, STEPS, WHY_POINTS } from "./content";
 
@@ -13,19 +19,23 @@ export default function LandingSections() {
       {/* Feature cards */}
       <div className="grid gap-4 sm:grid-cols-3">
         {FEATURES.map((f) => (
-          <Card key={f.title} variant="glass" className="rounded-2xl border-border/60">
+          <HoverScaleCard key={f.title} scale={1.03} lift className="rounded-2xl shadow-lg">
+            <Card variant="glass" className="rounded-2xl border-border/60">
             <CardContent className="pt-6">
               <GeneratedIcon name={f.icon} size={22} className="text-primary" />
               <h3 className="mt-3 font-bold text-foreground">{f.title}</h3>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
             </CardContent>
           </Card>
+        </HoverScaleCard>
         ))}
       </div>
 
       {/* How it works */}
       <div className="mt-12">
-        <h2 className="text-center text-xl font-black text-foreground">How it works</h2>
+        <h2 className="text-center text-xl font-black">
+          <SplitText text="How it works" />
+        </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s) => (
             <div key={s.n} className="rounded-xl border border-border bg-card/60 p-4">
@@ -39,7 +49,9 @@ export default function LandingSections() {
 
       {/* Why StreamWise exists: the full problem in numbers */}
       <div className="mt-16">
-        <h2 className="text-center text-xl font-black text-foreground">Why StreamWise?</h2>
+        <h2 className="text-center text-xl font-black">
+          <FadeUpText text="Why StreamWise?" />
+        </h2>
         <p className="mx-auto mt-2 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
           Choosing a stream at age 14 or 15 fixes the subjects students will sit at WAEC/NECO and the
           courses they can apply for. The numbers below show how poorly that decision is currently
@@ -47,7 +59,8 @@ export default function LandingSections() {
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {WHY_POINTS.map((s) => (
-            <Card key={s.title} variant="glass" className="h-full rounded-2xl border-border/60 text-left">
+            <HoverScaleCard key={s.title} scale={1.03} lift className="rounded-2xl shadow-lg">
+              <Card variant="glass" className="h-full rounded-2xl border-border/60 text-left">
               <CardContent className="flex h-full flex-col pt-6">
                 <GeneratedIcon name={s.icon} size={20} className="text-primary" />
                 <p className="mt-3 text-2xl font-black tracking-tight tabular-nums text-foreground">
@@ -60,6 +73,7 @@ export default function LandingSections() {
                 </p>
               </CardContent>
             </Card>
+          </HoverScaleCard>
           ))}
         </div>
       </div>

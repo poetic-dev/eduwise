@@ -7,7 +7,7 @@ import { getApiErrorMessage } from "@/api/errors";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import { useAuth } from "@/context/AuthContext";
 import type { RiasecLetter, RiasecQuestion } from "@/types/index";
-import { Button, Card, CardContent, Alert, AlertDescription } from "@arcevo/facet-components";
+import { Button, Card, CardContent, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 interface LikertOption {
@@ -142,7 +142,7 @@ export default function RIASEC() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <GeneratedIcon name="loader-circle" size={36} className="text-primary animate-spin mx-auto mb-3" />
+          <Spinner size="lg" variant="primary" className="mx-auto mb-3" />
           <p className="text-muted-foreground text-sm">Loading assessment questions…</p>
         </div>
       </div>
@@ -271,7 +271,7 @@ export default function RIASEC() {
                   >
                     {loading ? (
                       <>
-                        <GeneratedIcon name="loader-circle" size={14} className="animate-spin" />
+                        <Spinner size="sm" />
                         Analysing…
                       </>
                     ) : (

@@ -6,7 +6,7 @@ import ProgressBar from "@/components/ProgressBar";
 import { getApiErrorMessage } from "@/api/errors";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import { useAuth } from "@/context/AuthContext";
-import { Button, Input, Label, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription } from "@arcevo/facet-components";
+import { Button, Input, Label, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 import { Subject, AcademicLevel, AcademicStream } from "@/types";
 
@@ -100,7 +100,7 @@ export default function Scores() {
   if (checkingConsent) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <GeneratedIcon name="loader-circle" size={20} className="animate-spin text-muted-foreground" />
+        <Spinner variant="muted" />
       </div>
     );
   }
@@ -302,7 +302,7 @@ export default function Scores() {
                 <Button type="submit" className="w-full mt-2" disabled={loading}>
                   {loading ? (
                     <>
-                      <GeneratedIcon name="loader-circle" size={14} className="animate-spin" />
+                      <Spinner size="sm" />
                       Saving…
                     </>
                   ) : (

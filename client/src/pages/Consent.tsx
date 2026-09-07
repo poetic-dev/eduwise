@@ -5,7 +5,7 @@ import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import type { ConsentPayload } from "@/types";
-import { Button, Card, CardContent, CardHeader, CardTitle, CardDescription, Checkbox, Alert, AlertDescription } from "@arcevo/facet-components";
+import { Button, Card, CardContent, CardHeader, CardTitle, CardDescription, Checkbox, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 /**
@@ -108,7 +108,7 @@ export default function Consent() {
   if (checking) {
     return (
       <div className="min-h-[calc(100vh-56px)] flex items-center justify-center">
-        <GeneratedIcon name="loader-circle" size={20} className="animate-spin text-muted-foreground" />
+        <Spinner variant="muted" />
       </div>
     );
   }
@@ -168,7 +168,7 @@ export default function Consent() {
               >
                 {saving ? (
                   <>
-                    <GeneratedIcon name="loader-circle" size={14} className="animate-spin" />
+                    <Spinner size="sm" />
                     Saving…
                   </>
                 ) : (

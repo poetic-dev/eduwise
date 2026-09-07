@@ -3,9 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
-import { Button, Input, Label, Card, CardContent, CardHeader, CardTitle, CardDescription, Alert, AlertDescription } from "@arcevo/facet-components";
+import { Button, Input, Label, Card, CardContent, CardHeader, CardTitle, CardDescription, Alert, AlertDescription, Spinner, PasswordInput } from "@arcevo/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
-import PasswordInput from "@/components/PasswordInput";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import { STEP_TO_ROUTE } from "@/hooks/useResumeStep";
 import type { AssessmentStep } from "@/types";
@@ -124,7 +123,7 @@ export default function Login() {
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading ? (
                   <>
-                    <GeneratedIcon name="loader-circle" size={14} className="animate-spin" />
+                    <Spinner size="sm" />
                     Logging in…
                   </>
                 ) : (

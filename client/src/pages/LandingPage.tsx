@@ -4,7 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
 import { LandingLayout } from "@arcevo/facet-layout";
-import GeneratedIcon from "../icons.generated.tsx";
+import { Spinner } from "@arcevo/facet-components";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingFooter from "@/components/landing/LandingFooter";
 import LandingSections from "@/components/landing/LandingSections";
@@ -112,7 +112,7 @@ export default function LandingPage() {
   if (bootstrapping) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background">
-        <GeneratedIcon name="loader-circle" size={24} className="animate-spin text-muted-foreground" />
+        <Spinner variant="muted" />
       </div>
     );
   }

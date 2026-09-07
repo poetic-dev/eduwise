@@ -10,7 +10,7 @@ import ConfidenceGauge from "@/components/ConfidenceGauge";
 import GuidanceInsights from "@/components/GuidanceInsights";
 import { getApiErrorMessage } from "@/api/errors";
 import type { JambCourse, JambValidationResult, RecommendationDetailResponse, RecommendationResult, Stream } from "@/types/index";
-import { Button, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription } from "@arcevo/facet-components";
+import { Button, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 const STREAM_COLORS: Record<Stream, string> = {
@@ -129,7 +129,7 @@ export default function Results() {
     return (
       <div className="min-h-[calc(100vh-60px)] flex items-center justify-center">
         <div className="text-center">
-          <GeneratedIcon name="loader-circle" size={40} className="text-primary animate-spin mx-auto mb-4" />
+          <Spinner size="lg" variant="primary" className="mx-auto mb-4" />
           <p className="text-muted-foreground font-medium">Running AHP-SAW engine…</p>
           <p className="text-muted-foreground/70 text-xs mt-1">Computing your personalised recommendation</p>
         </div>
@@ -347,7 +347,7 @@ export default function Results() {
                 className="whitespace-nowrap"
               >
                 {jambLoading ? (
-                  <><GeneratedIcon name="loader-circle" size={13} className="animate-spin" />Checking…</>
+                  <><Spinner size="sm" />Checking…</>
                 ) : (
                   "Validate"
                 )}

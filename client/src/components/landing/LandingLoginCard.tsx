@@ -1,7 +1,6 @@
 import { type SubmitEvent } from "react";
 import { Link } from "react-router-dom";
-import {
-  Alert,
+import { Alert,
   AlertDescription,
   Button,
   Card,
@@ -10,10 +9,8 @@ import {
   CardHeader,
   CardTitle,
   Input,
-  Label,
-} from "@arcevo/facet-components";
+  Label, Spinner, PasswordInput } from "@arcevo/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
-import PasswordInput from "../PasswordInput";
 
 interface LandingLoginCardProps {
   email: string;
@@ -76,7 +73,7 @@ export default function LandingLoginCard({
               />
             </div>
             <Button type="submit" variant="outline" disabled={loggingIn} className="w-full">
-              {loggingIn ? <GeneratedIcon name="loader-circle" size={14} className="animate-spin" /> : "Log in"}
+              {loggingIn ? <Spinner size="sm" /> : "Log in"}
             </Button>
           </form>
 

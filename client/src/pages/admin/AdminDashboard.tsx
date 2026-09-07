@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
-import {
-  Card, CardContent, CardHeader, CardTitle, Progress, Alert, AlertDescription,
-} from "@arcevo/facet-components";
+import { Card, CardContent, CardHeader, CardTitle, Progress, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
 import GeneratedIcon, { type IconName } from "../../icons.generated.tsx";
 
 interface StatsResponse {
@@ -56,7 +54,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24 text-muted-foreground">
-        <GeneratedIcon name="loader-circle" size={20} className="animate-spin mr-2" />
+        <Spinner className="mr-2" />
         Loading dashboard…
       </div>
     );

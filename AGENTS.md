@@ -15,12 +15,16 @@ SS2 students using an AHP-SAW multi-criteria decision engine.
 - **Stack:** React 19 + Vite 5 + TailwindCSS + React Router (client) ·
   Express 4 + TypeScript ESM + Zod (server) · PostgreSQL + Prisma 7
   (`@prisma/adapter-pg`, generated TS client) · JWT auth
-- **UI:** `@arcevo/facet-components` + `@arcevo/facet-layout` +
-  `@arcevo/facet-tokens` (OKLCH tokens, dark-first). There is no
-  `components/ui/` dir. Hand-rolled primitives that facet doesn't ship:
-  `client/src/components/Alert.tsx`, plus thin wrappers
-  (`ProgressBar`, `ConfidenceGauge`, `GuidanceInsights`, `StreamCard`,
-  `PasswordInput`, `ThemeToggle`, `BrandLogo`, `SiteNav`, `AccountMenu`).
+- **UI:** `@arcevo/facet-components@1.11.0` + `@arcevo/facet-layout@1.4.2` +
+  `@arcevo/facet-tokens@1.1.4` (OKLCH tokens, dark-first). There is no
+  `components/ui/` dir. All loading spinners use facet `Spinner` (replaced
+  22 hand-rolled `<GeneratedIcon name="loader-circle">` across 16 files).
+  `Exit guest` buttons use facet `Button` (was raw `<button>`). Landing
+  hero uses `AnimatedButton`, `GradientText`, `FadeUpText`,
+  `HoverScaleCard`, `SplitText`. Hand-rolled wrappers: (`ProgressBar`,
+  `ConfidenceGauge`, `GuidanceInsights`, `StreamCard`, `BrandLogo`,
+  `SiteNav`, `AccountMenu`). `ThemeToggle` and `PasswordInput` deleted —
+  facet 1.11.0 now ships both.
 - **Engine:** pure TS modules in `server/src/engine/` (AHP, SAW, RIASEC, BFI,
   confidence, jamb, rescore) : zero DB/HTTP coupling. Never import Prisma or
   Express here. The personality→stream mapping is a 3-trait mean per stream
@@ -131,6 +135,18 @@ rules:
   guards (deep-linking to a later step : the server POSTs are the
   enforcement today). Then P2 (counselor portal depth, admin CRUD, CSV/PDF
   export polish, auth hardening, docs).
+- **Done (2026-09-02 — facet utilization audit):** Deleted hand-rolled
+  `ThemeToggle.tsx` and `PasswordInput.tsx` — facet-components 1.11.0 now
+  ships a single-button `ThemeToggle` and `PasswordInput` with built-in eye
+  toggle. Replaced 22 hand-rolled loading spinners with facet `Spinner`
+  (16 files). Replaced 3 raw `<button>` elements with facet `Button`
+  (exit-guest x2, hero guest link). Applied animated/effect components to
+  the landing page: `GradientText` heading, `FadeUpText` subheading,
+  `AnimatedButton` CTAs, `HoverScaleCard` on feature/stat cards,
+  `SplitText` on section headings. Enhanced facet package (avatar.tsx:
+  `UserAvatar.roleBadge`; footer.tsx: `Footer.renderLink` for SPA links).
+  `AccountMenu` and `LandingFooter` remain hand-rolled — now unblocked for
+  migration to the enhanced `UserAvatar` and `Footer`.
 
 ## File naming
 
