@@ -46,7 +46,7 @@ export default function LandingHero({
       <h1 className="mt-6 text-3xl font-black tracking-tight sm:text-4xl">
         <GradientText
           text="Find the academic stream that fits you"
-          colors={["hsl(var(--primary))", "hsl(var(--secondary))"]}
+          colors={["var(--primary)", "var(--secondary)"]}
         />
       </h1>
       <FadeUpText

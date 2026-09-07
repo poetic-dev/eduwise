@@ -36,7 +36,7 @@ export default function LandingLoginCard({
   onSubmit,
 }: LandingLoginCardProps) {
   return (
-    <div className="mx-auto mt-12 max-w-md">
+    <div className="mx-auto my-12 max-w-md">
       <Card variant="glass" className="rounded-2xl border-border/60">
         <CardHeader className="pb-3">
           <CardTitle className="text-base flex items-center gap-2">
