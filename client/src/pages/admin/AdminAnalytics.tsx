@@ -112,6 +112,7 @@ export default function AdminAnalytics() {
                   colors={{ chart: streamData.map((d) => d.color) }}
                   height={400}
                   showLegend={false}
+                  padding={{ top: 12, right: 28, bottom: 44, left: 60 }}
                   renderSliceLabel={(_index, value, _percent, xLabel) => (
                     <text fontSize={11} fill="var(--muted-foreground)" textAnchor="middle">
                       {`${xLabel}: ${value}`}
@@ -139,6 +140,7 @@ export default function AdminAnalytics() {
                 height={400}
                 showLegend={false}
                 barRadius={4}
+                padding={{ top: 12, right: 24, bottom: 40, left: 52 }}
                 className="w-full"
               />
             </div>
@@ -160,6 +162,7 @@ export default function AdminAnalytics() {
                 yMin={0}
                 height={400}
                 showLegend={false}
+                padding={{ top: 12, right: 32, bottom: 44, left: 52 }}
                 colors={{ chart: ["#3B82F6"] }}
                 className="w-full"
               />
@@ -191,13 +194,14 @@ export default function AdminAnalytics() {
                       color: "#8B5CF6",
                     },
                   ]}
-                  yMin={0}
-                  height={400}
-                  showLegend={false}
-                  barRadius={4}
-                  className="w-full"
-                />
-              </div>
+                yMin={0}
+                height={400}
+                showLegend={false}
+                barRadius={4}
+                padding={{ top: 12, right: 24, bottom: 36, left: 76 }}
+                className="w-full"
+              />
+            </div>
             )}
           </CardContent>
         </Card>
@@ -228,6 +232,7 @@ export default function AdminAnalytics() {
                   yMax={100}
                   height={400}
                   showLegend={false}
+                  padding={{ top: 12, right: 24, bottom: 40, left: 52 }}
                   colors={{ chart: avgScoreData.map((d) => STREAM_COLORS[d.name as Stream] ?? "#3B82F6") }}
                   className="w-full"
                 />

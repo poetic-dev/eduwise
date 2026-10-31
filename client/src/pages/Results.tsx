@@ -229,6 +229,7 @@ export default function Results() {
                 yMax={100}
                 height={400}
                 showLegend={false}
+                padding={{ top: 12, right: 24, bottom: 40, left: 60 }}
                 formatY={(n) => n.toFixed(0)}
                 formatTooltipValue={(value) => `${value.toFixed(2)}`}
                 colors={{ chart: chartData.map((d) => STREAM_COLORS[d.name as Stream]) }}
