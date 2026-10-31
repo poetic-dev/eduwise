@@ -2,7 +2,7 @@
   "version": 2,
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
-  "installCommand": "cd .. && pnpm install",
+  "installCommand": "cd .. && pnpm install --no-frozen-lockfile",
   "framework": "vite",
   "rewrites": [
     {
