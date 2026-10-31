@@ -219,20 +219,22 @@ export default function Results() {
             <p className="text-xs text-muted-foreground mb-4">
               Weighted scores × 100. Higher is a stronger match
             </p>
-            <Chart
-              x={chartData.map((d) => d.name)}
-              series={[{ id: "score", label: "SAW Score", data: chartData.map((d) => d.score) }]}
-              type="bar"
-              layout="horizontal"
-              yMin={0}
-              yMax={100}
-              height={200}
-              showLegend={false}
-              formatY={(n) => n.toFixed(0)}
-              formatTooltipValue={(value) => `${value.toFixed(2)}`}
-              colors={{ chart: chartData.map((d) => STREAM_COLORS[d.name as Stream]) }}
-              className="w-full"
-            />
+            <div className="w-full">
+              <Chart
+                x={chartData.map((d) => d.name)}
+                series={[{ id: "score", label: "SAW Score", data: chartData.map((d) => d.score) }]}
+                type="bar"
+                layout="horizontal"
+                yMin={0}
+                yMax={100}
+                height={400}
+                showLegend={false}
+                formatY={(n) => n.toFixed(0)}
+                formatTooltipValue={(value) => `${value.toFixed(2)}`}
+                colors={{ chart: chartData.map((d) => STREAM_COLORS[d.name as Stream]) }}
+                className="w-full"
+              />
+            </div>
           </CardContent>
         </Card>
 

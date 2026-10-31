@@ -92,7 +92,7 @@ export default function AdminAnalytics() {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2 items-start">
         {/* Stream distribution */}
         <Card>
           <CardHeader>
@@ -104,15 +104,19 @@ export default function AdminAnalytics() {
                 No recommendations yet.
               </p>
             ) : (
-              <div className="h-64">
+              <div className="w-full">
                 <Chart
                   type="pie"
                   x={streamData.map((d) => d.name)}
                   series={[{ id: "stream", label: "Stream", data: streamData.map((d) => d.value) }]}
                   colors={{ chart: streamData.map((d) => d.color) }}
-                  height={256}
+                  height={400}
                   showLegend={false}
-                  renderSliceLabel={(_index, value, _percent, xLabel) => `${xLabel}: ${value}`}
+                  renderSliceLabel={(_index, value, _percent, xLabel) => (
+                    <text fontSize={11} fill="var(--muted-foreground)" textAnchor="middle">
+                      {`${xLabel}: ${value}`}
+                    </text>
+                  )}
                   className="w-full"
                 />
               </div>
@@ -126,13 +130,13 @@ export default function AdminAnalytics() {
             <CardTitle className="text-base">Confidence Level Distribution</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-64">
+            <div className="w-full">
               <Chart
                 type="bar"
                 x={analytics.confidenceDistribution.map((d) => d.bin)}
                 series={[{ id: "count", label: "Recommendations", data: analytics.confidenceDistribution.map((d) => d.count) }]}
                 yMin={0}
-                height={256}
+                height={400}
                 showLegend={false}
                 barRadius={4}
                 className="w-full"
@@ -147,14 +151,14 @@ export default function AdminAnalytics() {
             <CardTitle className="text-base">Registrations Over Time</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-64">
+            <div className="w-full">
               <Chart
                 type="area"
                 curve="smooth"
                 x={analytics.registrationsByMonth.map((d) => d.month)}
                 series={[{ id: "reg", label: "Registrations", data: analytics.registrationsByMonth.map((d) => d.count) }]}
                 yMin={0}
-                height={256}
+                height={400}
                 showLegend={false}
                 colors={{ chart: ["#3B82F6"] }}
                 className="w-full"
@@ -174,7 +178,7 @@ export default function AdminAnalytics() {
                 No JAMB validations yet.
               </p>
             ) : (
-              <div className="h-64">
+              <div className="w-full">
                 <Chart
                   type="bar"
                   layout="horizontal"
@@ -188,7 +192,7 @@ export default function AdminAnalytics() {
                     },
                   ]}
                   yMin={0}
-                  height={256}
+                  height={400}
                   showLegend={false}
                   barRadius={4}
                   className="w-full"
@@ -209,7 +213,7 @@ export default function AdminAnalytics() {
                 No academic profiles yet.
               </p>
             ) : (
-              <div className="h-64">
+              <div className="w-full">
                 <Chart
                   type="bar"
                   x={avgScoreData.map((d) => d.name)}
@@ -222,7 +226,7 @@ export default function AdminAnalytics() {
                   ]}
                   yMin={0}
                   yMax={100}
-                  height={256}
+                  height={400}
                   showLegend={false}
                   colors={{ chart: avgScoreData.map((d) => STREAM_COLORS[d.name as Stream] ?? "#3B82F6") }}
                   className="w-full"
