@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { Spinner } from "@arcevo/facet-components";
+import { Spinner } from "@fusorb/facet-components";
 import { useState, useEffect, type ReactNode } from "react";
 import { useAuth } from "./context/AuthContext";
 import { useResumeStep } from "./hooks/useResumeStep";

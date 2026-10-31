@@ -72,7 +72,7 @@ Guidance insight text + RecommendationLog (audit snapshot)
                                   [Pure Engine Layer: ahp.ts / saw.ts / riasec.ts / bfi.ts / confidence.ts]
 ```
 
-With the repo in hand now, want me to go through the rest of the client (Consent.tsx, History.tsx, and the `@arcevo/facet-components` design system I saw imported in AdminAnalytics) for the same kind of audit, or pick back up on the thesis docx work?
+With the repo in hand now, want me to go through the rest of the client (Consent.tsx, History.tsx, and the `@fusorb/facet-components` design system I saw imported in AdminAnalytics) for the same kind of audit, or pick back up on the thesis docx work?
 
 ........
 
@@ -344,4 +344,4 @@ Two fixes so far:
 1. **Analytics keying bug** — `getAnalytics` wasn't converting `AcademicStream` enum values through `ENUM_TO_STREAM` before returning them, so the client's label/color lookups all missed.
 2. **Consent enforcement gap** — `/profile/scores`, `/riasec/submit`, and `/bfi/submit` could all be hit by an authenticated student with no granted consent; only `/recommend` checked it. Added a `requireConsent()` middleware, same shape as your existing `requireRole()`, gating all three.
 
-Still on my list from your "sure" — `History.tsx` and the `@arcevo/facet-components` design-system package. Want me to keep going through those now, or pause here while you review and merge these two first?
+Still on my list from your "sure" — `History.tsx` and the `@fusorb/facet-components` design-system package. Want me to keep going through those now, or pause here while you review and merge these two first?

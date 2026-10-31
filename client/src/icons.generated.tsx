@@ -95,8 +95,8 @@ import {
   Users,
   X,
   Zap,
-} from "@arcevo/facet-components/icons";
-import type { LucideIcon } from "@arcevo/facet-components/icons";
+} from "@fusorb/facet-components/icons";
+import type { LucideIcon } from "@fusorb/facet-components/icons";
 
 const ICONS: Record<string, LucideIcon> = {
   "settings": Settings,

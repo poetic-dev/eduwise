@@ -1,4 +1,4 @@
-# StreamWise : Weighted Decision Support System
+# EduWiseWeighted Decision Support System
 
 A final-year research project that recommends an academic stream (**Science /
 Humanities / Business**) to Nigerian SS2 students using an **AHP-SAW**
@@ -17,7 +17,7 @@ seeded university-course catalog.
 ## Stack
 
 - **Frontend:** React 19 + Vite 5 + TailwindCSS + React Router 6 (Vercel static)
-- **UI:** `@arcevo/facet-components` + `@arcevo/facet-layout` + `@arcevo/facet-tokens`
+- **UI:** `@fusorb/facet-components` + `@fusorb/facet-layout` + `@fusorb/facet-tokens`
   (OKLCH tokens, dark-first) : the only UI foundation. No legacy `components/ui/`.
 - **Backend:** Express 4 + TypeScript (ESM) + Zod (Express API, reverse proxy)
 - **Database:** PostgreSQL + Prisma 7 (adapter-pg, generated TS client)
@@ -182,7 +182,7 @@ derived `emotionalStabilityScore`.
   `dist/src/app.js`.
 - Netlify env vars required: `DATABASE_URL`, `JWT_SECRET`, `CLIENT_URL`,
   `NODE_ENV=production`. Set `VITE_API_BASE_URL` in Vercel to the Netlify
-  site origin (e.g. `https://streamwise-dss.netlify.app`).
+  site origin (e.g. `https://eduwise-dss.netlify.app`).
 - Netlify does **not** run database migrations and does **not** host
   Postgres. Point `DATABASE_URL` at any Postgres host (Neon / Supabase /
   self-hosted) and apply migrations from your terminal once:

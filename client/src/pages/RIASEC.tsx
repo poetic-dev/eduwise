@@ -7,7 +7,7 @@ import { getApiErrorMessage } from "@/api/errors";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import { useAuth } from "@/context/AuthContext";
 import type { RiasecLetter, RiasecQuestion } from "@/types/index";
-import { Button, Card, CardContent, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
+import { Button, Card, CardContent, Alert, AlertDescription, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 interface LikertOption {

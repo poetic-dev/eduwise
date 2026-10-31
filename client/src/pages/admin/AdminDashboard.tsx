@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
-import { Card, CardContent, CardHeader, CardTitle, Progress, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
+import { Card, CardContent, CardHeader, CardTitle, Progress, Alert, AlertDescription, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon, { type IconName } from "../../icons.generated.tsx";
 
 interface StatsResponse {

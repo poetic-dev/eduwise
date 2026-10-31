@@ -4,7 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { getApiErrorMessage } from "@/api/errors";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import type { Gender, ConsentPayload } from "@/types/index";
-import { Button, Input, Label, Card, CardContent, CardHeader, CardTitle, CardDescription, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner, PasswordInput } from "@arcevo/facet-components";
+import { Button, Input, Label, Card, CardContent, CardHeader, CardTitle, CardDescription, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner, PasswordInput } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 interface RegisterForm {

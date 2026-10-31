@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuItem,
-} from "@arcevo/facet-components";
+} from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 /**

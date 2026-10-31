@@ -9,7 +9,7 @@ import { Alert,
   CardHeader,
   CardTitle,
   Input,
-  Label, Spinner, PasswordInput } from "@arcevo/facet-components";
+  Label, Spinner, PasswordInput } from "@fusorb/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 
 interface LandingLoginCardProps {

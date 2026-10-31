@@ -5,7 +5,7 @@ import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import type { ConsentPayload } from "@/types";
-import { Button, Card, CardContent, CardHeader, CardTitle, CardDescription, Checkbox, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
+import { Button, Card, CardContent, CardHeader, CardTitle, CardDescription, Checkbox, Alert, AlertDescription, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 /**
@@ -17,7 +17,7 @@ import GeneratedIcon from "../icons.generated.tsx";
 const CONSENT_POINTS: { key: "consentPoint1" | "consentPoint2" | "consentPoint3" | "consentPoint4"; label: string }[] = [
   {
     key: "consentPoint1",
-    label: "I understand this is an academic project (StreamWise DSS) and not an official government or school service.",
+    label: "I understand this is an academic project (EduWise DSS) and not an official government or school service.",
   },
   {
     key: "consentPoint2",

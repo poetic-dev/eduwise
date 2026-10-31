@@ -1,4 +1,4 @@
-# StreamWise Rebuild : Claude Code Prompt
+# EduWise Rebuild : Claude Code Prompt
 
 > **IMPORTANT : this file is the ORIGINAL rebuild spec (aspirational), NOT a
 > description of the current codebase.** The actual implementation diverged
@@ -27,40 +27,40 @@ Paste this whole file as your prompt to Claude Code in a fresh repo.
 
 ## Context
 
-Rebuild **StreamWise**, a Weighted Decision Support System (AHP-SAW) that
+Rebuild **EduWise**, a Weighted Decision Support System (AHP-SAW) that
 recommends Nigerian Senior Secondary School students a subject stream
 (Science / Humanities / Business), a trade subject (2025/2026 NERDC reform),
 and validates the result against JAMB O'Level prerequisites. Full academic
-grounding is in `StreamWise_Chapters1-2_Rewrite.docx` (attach it) : read it
+grounding is in `EduWise_Chapters1-2_Rewrite.docx` (attach it) : read it
 before designing the AHP-SAW engine and the data model.
 
 This is being rebuilt as a member of the **ArcevoCirqle ecosystem**, on top
 of these already-published packages (do not reimplement any of this):
 
-- `@arcevo/facet-tokens` : design tokens (Alpha Palette, OKLCH, dark-first)
-- `@arcevo/facet-components` : Radix-based component library (Button,
+- `@fusorb/facet-tokens` : design tokens (Alpha Palette, OKLCH, dark-first)
+- `@fusorb/facet-components` : Radix-based component library (Button,
   Checkbox, Card, Dialog, Sheet, Command, etc. : 45+ components)
-- `@arcevo/facet-layout` : app shell (`LandingLayout`, `AuthLayout`,
+- `@fusorb/facet-layout` : app shell (`LandingLayout`, `AuthLayout`,
   `ConsoleLayout`, `Sidebar`, `Topbar`, `PageHeader`, `TenantSwitcher`) with
   a pre-built `eduLayoutPreset`
-- `@arcevo/facet-auth` : `ArcProvider`, `SignIn`, `SignUp`, `Guard`, MFA
-  flows, with a pre-built `eduPreset`, wired to `@arcevo/facet-sdk`
-- `@arcevo/facet-sdk` : `ArcIdClient`, the arc-id identity-platform client
+- `@fusorb/facet-auth` : `ArcProvider`, `SignIn`, `SignUp`, `Guard`, MFA
+  flows, with a pre-built `eduPreset`, wired to `@fusorb/facet-sdk`
+- `@fusorb/facet-sdk` : `ArcIdClient`, the arc-id identity-platform client
   (auth, tenants, roles/permissions, audit, IdP)
 
 **Identity, roles, tenancy (School), and the auth audit trail are arc-id's
 job via `facet-sdk` and `facet-auth`'s `eduPreset` : do not build a local
-Counselor/SchoolAdmin/Admin role table or a local AuditLog.** StreamWise's
-own database only holds StreamWise's domain data (see schema below).
+Counselor/SchoolAdmin/Admin role table or a local AuditLog.** EduWise's
+own database only holds EduWise's domain data (see schema below).
 
 ## Stack
 
 - Next.js (App Router) + TypeScript
-- `@arcevo/facet-*` for all UI, layout, auth, tokens
+- `@fusorb/facet-*` for all UI, layout, auth, tokens
 - Prisma + PostgreSQL for domain data only
 - `ArcIdClient` from `facet-sdk` for all identity/tenant/role calls
 
-## Data model (StreamWise-owned only)
+## Data model (EduWise-owned only)
 
 Design a Prisma schema covering, at minimum:
 
@@ -79,7 +79,7 @@ Design a Prisma schema covering, at minimum:
 - `RecommendationLog` : full input snapshot (academic + RIASEC + BFI +
   weight-set version + JAMB requirement version used), output (ranked
   streams, confidence level, guidance-insight text), and a foreign key to
-  the arc-id user id : this is StreamWise's own audit trail, distinct from
+  the arc-id user id : this is EduWise's own audit trail, distinct from
   arc-id's
 
 ## AHP-SAW engine
@@ -116,8 +116,8 @@ inside it) so it's independently testable:
 
 Route: `/`. Do not require auth to view this page.
 
-**Layout**: `LandingLayout` from `@arcevo/facet-layout`, `eduLayoutPreset`
-as the base `BrandConfig`/features, overridden with StreamWise's own
+**Layout**: `LandingLayout` from `@fusorb/facet-layout`, `eduLayoutPreset`
+as the base `BrandConfig`/features, overridden with EduWise's own
 `brand.name` and `brand.logo`.
 
 **Logo**: Source Lagos State University's official logo from LASU's own
@@ -126,7 +126,7 @@ to the user for confirmation that they have the right to display it
 (it's an institutional mark, not the team's own IP) before shipping.
 
 **Content**:
-- Product name/wordmark + short one-line description of StreamWise
+- Product name/wordmark + short one-line description of EduWise
 - A **consent card** (use `Card` from `facet-components`) containing:
   - A short, plain-language protocol paragraph: what the tool is
     (an educational research project, not an official LASU/NERDC/JAMB
@@ -142,11 +142,11 @@ to the user for confirmation that they have the right to display it
     - "I consent to my academic, RIASEC, and personality responses
       being used to generate a recommendation and being logged for
       this study's evaluation."
-    - "I understand StreamWise's recommendation is a decision *aid*,
+    - "I understand EduWise's recommendation is a decision *aid*,
       not a replacement for a qualified guidance counsellor."
     - "I am providing this information voluntarily and may stop at
       any time."
-- A single **"Explore StreamWise"** `Button` (primary variant) that is
+- A single **"Explore EduWise"** `Button` (primary variant) that is
   `disabled` until all checkboxes are checked (React state : `useState`
   array or a `Set` of checked ids, `disabled={!allChecked}`). On click,
   route to `/auth/sign-up` or `/assessment` depending on auth state.

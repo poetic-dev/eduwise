@@ -29,7 +29,7 @@ import { Alert,
   DialogFooter,
   DialogTitle,
   DialogDescription,
-  DialogClose, Spinner } from "@arcevo/facet-components";
+  DialogClose, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 import type { ClearHistoryResponse, RecommendationHistoryResponse, Stream } from "@/types/index";
 

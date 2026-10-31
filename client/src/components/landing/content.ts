@@ -45,7 +45,7 @@ export const STEPS: StepItem[] = [
   { n: "04", title: "Get your result", text: "A ranked recommendation with confidence level, guidance, and a JAMB validator." },
 ];
 
-/** Why StreamWise exists: the problem in numbers. These are the same
+/** Why EduWise exists: the problem in numbers. These are the same
  *  verifiable figures cited in the project's Chapter 2 literature review,
  *  kept together here so a visitor gets the full context behind the engine. */
 export const WHY_POINTS: WhyPoint[] = [

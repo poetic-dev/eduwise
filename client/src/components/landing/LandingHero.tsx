@@ -7,7 +7,7 @@ import {
   FadeUpText,
   GradientText,
   HoverScaleCard,
-} from "@arcevo/facet-components";
+} from "@fusorb/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import BrandLogo from "../BrandLogo";
 import { WHY_POINTS } from "./content";
@@ -53,13 +53,13 @@ export default function LandingHero({
         delay={200}
         className="mx-auto mt-3 block max-w-3xl text-sm leading-relaxed text-muted-foreground"
       >
-        StreamWise recommends a Science, Humanities, or Business stream to Nigerian SS2
+        EduWise recommends a Science, Humanities, or Business stream to Nigerian SS2
         students using a research-backed AHP-SAW decision engine: your academic scores,
         vocational interests, and personality, combined into one clear recommendation.
       </FadeUpText>
 
       {/* Why it matters: a compact, scannable teaser. The full context lives
-          in the "Why StreamWise?" section below the hero. */}
+          in the "Why EduWise?" section below the hero. */}
       <div className="mx-auto mt-8 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
         {WHY_POINTS.map((s) => (
           <HoverScaleCard key={s.title} scale={1.02} lift className="rounded-2xl shadow-lg">

@@ -15,8 +15,8 @@ SS2 students using an AHP-SAW multi-criteria decision engine.
 - **Stack:** React 19 + Vite 5 + TailwindCSS + React Router (client) ·
   Express 4 + TypeScript ESM + Zod (server) · PostgreSQL + Prisma 7
   (`@prisma/adapter-pg`, generated TS client) · JWT auth
-- **UI:** `@arcevo/facet-components@1.11.0` + `@arcevo/facet-layout@1.4.2` +
-  `@arcevo/facet-tokens@1.1.4` (OKLCH tokens, dark-first). There is no
+- **UI:** `@fusorb/facet-components@1.11.0` + `@fusorb/facet-layout@1.4.2` +
+  `@fusorb/facet-tokens@1.1.4` (OKLCH tokens, dark-first). There is no
   `components/ui/` dir. All loading spinners use facet `Spinner` (replaced
   22 hand-rolled `<GeneratedIcon name="loader-circle">` across 16 files).
   `Exit guest` buttons use facet `Button` (was raw `<button>`). Landing
@@ -58,7 +58,7 @@ SS2 students using an AHP-SAW multi-criteria decision engine.
    endpoints).
 4. **Client conventions:** all API calls through the shared axios instance
    (`client/src/api/axios.ts`); auth state via `useAuth()` from
-   `client/src/context/AuthContext`; **all UI from `@arcevo/facet-components`**.
+   `client/src/context/AuthContext`; **all UI from `@fusorb/facet-components`**.
    No `components/ui/`, no hardcoded `window.location.href` redirects for
    normal navigation (SPA routing only; the axios 401/403 interceptor is the
    one place that clears a dead session).
@@ -98,7 +98,7 @@ rules:
   `COUNSELOR` / `SCHOOL_ADMIN` / `ADMIN` → `/admin` (read-only console for
   non-ADMIN client-side; the server is the real gate — `/admin/export/csv`
   and `/admin/rescore/:studentId` are `requireRole(ADMIN)`).
-- arc-id (`@arcevo/facet-auth` + `@arcevo/facet-sdk`) is the **future**
+- arc-id (`@fusorb/facet-auth` + `@fusorb/facet-sdk`) is the **future**
   canonical identity system, NOT wired in yet. Do not add it until
   production-ready. `Student.arcId` (`@unique`, nullable) is the migration
   surface.

@@ -1,13 +1,13 @@
-@source "../node_modules/@arcevo/facet-components/dist";
-@source "../node_modules/@arcevo/facet-layout/dist";
+@source "../node_modules/@fusorb/facet-components/dist";
+@source "../node_modules/@fusorb/facet-layout/dist";
 
 /* =================================================================
- * StreamWise: Tailwind v4 theme extension
+ * EduWise: Tailwind v4 theme extension
  *
- * Facet design tokens (@arcevo/facet-tokens/tokens.css) are OKLCH CSS
+ * Facet design tokens (@fusorb/facet-tokens/tokens.css) are OKLCH CSS
  * custom properties; the facet tokens tailwind.css already maps them
  * into Tailwind v4 theme variables (--color-primary, --radius-*, ...).
- * This file adds the StreamWise-specific theme on top:
+ * This file adds the EduWise-specific theme on top:
  *   • Poppins-first font stack (the v3 tailwind.config default)
  *   • stable hex stream colours for charts / badges
  *   • the Tailwind source scanner hints for facet's published dist

@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import BrandLogo from "./BrandLogo";
 import AccountMenu from "./AccountMenu";
-import { Navbar, Button, ThemeToggle } from "@arcevo/facet-components";
+import { Navbar, Button, ThemeToggle } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 /** react-router adapter so the facet Navbar renders SPA links. */
@@ -50,10 +50,10 @@ export default function SiteNav() {
   const avatarOnMobile = token != null && role !== "GUEST";
 
   const brand = (
-    <Link to="/" className="flex items-center gap-2.5 min-w-0" aria-label="StreamWise home">
+    <Link to="/" className="flex items-center gap-2.5 min-w-0" aria-label="EduWise home">
       <BrandLogo className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
       <div className="leading-tight min-w-0">
-        <p className="text-sm font-bold tracking-tight text-foreground truncate">StreamWise</p>
+        <p className="text-sm font-bold tracking-tight text-foreground truncate">EduWise</p>
         <p className="hidden text-[10px] uppercase tracking-widest text-muted-foreground min-[480px]:block">
           Weighted Decision Support System
         </p>
@@ -166,7 +166,7 @@ export default function SiteNav() {
 
   return (
     <Navbar
-      variant="pill"
+      variant="sticky"
       className="z-[100] bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/80"
       brand={brand}
       links={[]}

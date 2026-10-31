@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
-import { LandingLayout } from "@arcevo/facet-layout";
-import { Spinner } from "@arcevo/facet-components";
+import { LandingLayout } from "@fusorb/facet-layout";
+import { Spinner } from "@fusorb/facet-components";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingFooter from "@/components/landing/LandingFooter";
 import LandingSections from "@/components/landing/LandingSections";
@@ -15,7 +15,7 @@ import type { AssessmentStep } from "@/types";
 /**
  * Landing page (`/`).
  *
- * An overview of what StreamWise is, with clear action buttons:
+ * An overview of what EduWise is, with clear action buttons:
  *   • "Take the Assessment": routes to the informed-consent gate at
  *     /consent. Anonymous visitors agree first, then create an account
  *     (consent intent carried via sessionStorage into register). A logged-in

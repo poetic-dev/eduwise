@@ -6,7 +6,7 @@ import ProgressBar from "@/components/ProgressBar";
 import { getApiErrorMessage } from "@/api/errors";
 import { useLocalDraft } from "@/hooks/useLocalDraft";
 import { useAuth } from "@/context/AuthContext";
-import { Button, Input, Label, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
+import { Button, Input, Label, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 import { Subject, AcademicLevel, AcademicStream } from "@/types";
 

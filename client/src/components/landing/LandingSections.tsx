@@ -4,13 +4,13 @@ import {
   FadeUpText,
   HoverScaleCard,
   SplitText,
-} from "@arcevo/facet-components";
+} from "@fusorb/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import { FEATURES, STEPS, WHY_POINTS } from "./content";
 
 /**
  * The static body sections of the marketing landing page: feature cards,
- * "How it works" steps, and the "Why StreamWise?" problem-in-numbers stats.
+ * "How it works" steps, and the "Why EduWise?" problem-in-numbers stats.
  * Data-driven from content.ts so the page stays declarative.
  */
 export default function LandingSections() {
@@ -47,10 +47,10 @@ export default function LandingSections() {
         </div>
       </div>
 
-      {/* Why StreamWise exists: the full problem in numbers */}
+      {/* Why EduWise exists: the full problem in numbers */}
       <div className="mt-16">
         <h2 className="text-center text-xl font-black">
-          <FadeUpText text="Why StreamWise?" />
+          <FadeUpText text="Why EduWise?" />
         </h2>
         <p className="mx-auto mt-2 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
           Choosing a stream at age 14 or 15 fixes the subjects students will sit at WAEC/NECO and the

@@ -1,10 +1,10 @@
 {
-  "name": "stream-wise",
-  "version": "1.0.0",
+  "name": "eduwise",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently --names SERVER,CLIENT --prefix-colors blue,green \"pnpm --filter server dev\" \"pnpm --filter client dev\"",
+    "dev": "node --no-deprecation node_modules/concurrently/dist/bin/concurrently.js --names SERVER,CLIENT --prefix-colors blue,green \"pnpm --filter server dev\" \"pnpm --filter client dev\"",
     "build": "pnpm --filter server build && pnpm --filter client build",
     "lint": "pnpm --filter client lint"
   },

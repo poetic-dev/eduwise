@@ -1,21 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "@/api";
 import { getApiErrorMessage } from "@/api/errors";
-import { Card, CardContent, CardHeader, CardTitle, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
-import {
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  AreaChart,
-  Area,
-} from "recharts";
+import { Card, CardContent, CardHeader, CardTitle, Chart, Alert, AlertDescription, Spinner } from "@fusorb/facet-components";
 import type { Stream } from "@/types";
 
 interface AnalyticsResponse {
@@ -119,24 +105,16 @@ export default function AdminAnalytics() {
               </p>
             ) : (
               <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={streamData}
-                      dataKey="value"
-                      nameKey="name"
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={80}
-                      label={(entry) => `${entry.name}: ${entry.value}`}
-                    >
-                      {streamData.map((entry) => (
-                        <Cell key={entry.name} fill={entry.color} />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
+                <Chart
+                  type="pie"
+                  x={streamData.map((d) => d.name)}
+                  series={[{ id: "stream", label: "Stream", data: streamData.map((d) => d.value) }]}
+                  colors={{ chart: streamData.map((d) => d.color) }}
+                  height={256}
+                  showLegend={false}
+                  renderSliceLabel={(_index, value, _percent, xLabel) => `${xLabel}: ${value}`}
+                  className="w-full"
+                />
               </div>
             )}
           </CardContent>
@@ -149,15 +127,16 @@ export default function AdminAnalytics() {
           </CardHeader>
           <CardContent>
             <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={analytics.confidenceDistribution}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="bin" tick={{ fontSize: 11 }} />
-                  <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
-                  <Tooltip />
-                  <Bar dataKey="count" name="Recommendations" fill="#3B82F6" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+              <Chart
+                type="bar"
+                x={analytics.confidenceDistribution.map((d) => d.bin)}
+                series={[{ id: "count", label: "Recommendations", data: analytics.confidenceDistribution.map((d) => d.count) }]}
+                yMin={0}
+                height={256}
+                showLegend={false}
+                barRadius={4}
+                className="w-full"
+              />
             </div>
           </CardContent>
         </Card>
@@ -169,27 +148,17 @@ export default function AdminAnalytics() {
           </CardHeader>
           <CardContent>
             <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={analytics.registrationsByMonth}>
-                  <defs>
-                    <linearGradient id="regGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.6} />
-                      <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" tick={{ fontSize: 11 }} />
-                  <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
-                  <Tooltip />
-                  <Area
-                    type="monotone"
-                    dataKey="count"
-                    name="Registrations"
-                    stroke="#3B82F6"
-                    fill="url(#regGradient)"
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
+              <Chart
+                type="area"
+                curve="smooth"
+                x={analytics.registrationsByMonth.map((d) => d.month)}
+                series={[{ id: "reg", label: "Registrations", data: analytics.registrationsByMonth.map((d) => d.count) }]}
+                yMin={0}
+                height={256}
+                showLegend={false}
+                colors={{ chart: ["#3B82F6"] }}
+                className="w-full"
+              />
             </div>
           </CardContent>
         </Card>
@@ -206,28 +175,24 @@ export default function AdminAnalytics() {
               </p>
             ) : (
               <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    data={analytics.topCourses.map((c) => ({
-                      name: c.courseName,
-                      validations: c.validationCount,
-                      compliance: c.complianceRate,
-                    }))}
-                    layout="vertical"
-                    margin={{ left: 8, right: 16 }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis type="number" tick={{ fontSize: 11 }} />
-                    <YAxis
-                      type="category"
-                      dataKey="name"
-                      width={140}
-                      tick={{ fontSize: 11 }}
-                    />
-                    <Tooltip />
-                    <Bar dataKey="validations" name="Validations" fill="#8B5CF6" radius={[0, 4, 4, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+                <Chart
+                  type="bar"
+                  layout="horizontal"
+                  x={analytics.topCourses.map((c) => c.courseName)}
+                  series={[
+                    {
+                      id: "validations",
+                      label: "Validations",
+                      data: analytics.topCourses.map((c) => c.validationCount),
+                      color: "#8B5CF6",
+                    },
+                  ]}
+                  yMin={0}
+                  height={256}
+                  showLegend={false}
+                  barRadius={4}
+                  className="w-full"
+                />
               </div>
             )}
           </CardContent>
@@ -245,22 +210,23 @@ export default function AdminAnalytics() {
               </p>
             ) : (
               <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={avgScoreData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" tick={{ fontSize: 11 }} />
-                    <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} />
-                    <Tooltip />
-                    <Bar dataKey="score" name="Avg weighted score" radius={[4, 4, 0, 0]}>
-                      {avgScoreData.map((entry) => (
-                        <Cell
-                          key={entry.name}
-                          fill={STREAM_COLORS[entry.name as Stream] ?? "#3B82F6"}
-                        />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                <Chart
+                  type="bar"
+                  x={avgScoreData.map((d) => d.name)}
+                  series={[
+                    {
+                      id: "score",
+                      label: "Avg weighted score",
+                      data: avgScoreData.map((d) => d.score),
+                    },
+                  ]}
+                  yMin={0}
+                  yMax={100}
+                  height={256}
+                  showLegend={false}
+                  colors={{ chart: avgScoreData.map((d) => STREAM_COLORS[d.name as Stream] ?? "#3B82F6") }}
+                  className="w-full"
+                />
               </div>
             )}
           </CardContent>

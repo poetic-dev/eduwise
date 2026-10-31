@@ -20,7 +20,7 @@ import { Button,
   PaginationContent,
   PaginationItem,
   PaginationPrevious,
-  PaginationNext, Spinner } from "@arcevo/facet-components";
+  PaginationNext, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import type { UserRole } from "@/types";
 

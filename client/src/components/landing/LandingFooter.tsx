@@ -9,7 +9,7 @@ export default function LandingFooter() {
       <div className="space-y-3">
         <div className="flex items-center gap-2.5">
           <BrandLogo className="h-8 w-8" />
-          <span className="text-sm font-bold tracking-tight text-foreground">StreamWise</span>
+          <span className="text-sm font-bold tracking-tight text-foreground">EduWise</span>
         </div>
         <p className="max-w-xs text-xs leading-relaxed text-muted-foreground">
           A weighted decision support system that helps Nigerian SS2 students choose an
@@ -55,7 +55,7 @@ export default function LandingFooter() {
       <div>
         <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground">Research</h4>
         <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-          StreamWise is a final-year academic project, not an official LASU, NERDC, or JAMB
+          EduWise is a final-year academic project, not an official LASU, NERDC, or JAMB
           service. Its recommendation is a decision aid, not a replacement for a qualified
           guidance counsellor.
         </p>
@@ -63,7 +63,7 @@ export default function LandingFooter() {
 
       {/* Bottom bar */}
       <div className="flex flex-col gap-3 border-t border-border/50 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:gap-2">
-        <p>© {new Date().getFullYear()} StreamWise. Final-year academic project.</p>
+        <p>© {new Date().getFullYear()} EduWise. Final-year academic project.</p>
         <div className="flex items-center gap-4">
           <Link to="/consent" className="transition-colors hover:text-foreground">
             Consent

@@ -2,7 +2,7 @@ packages:
   - "client"
   - "server"
 # pnpm 11 defaults minimumReleaseAge to 1440 (1 day), which blocks the
-# project's own freshly-published @arcevo/facet-* packages on first use.
+# project's own freshly-published @fusorb/facet-* packages on first use.
 minimumReleaseAge: 0
 allowBuilds:
   '@prisma/client': true
@@ -10,13 +10,10 @@ allowBuilds:
   esbuild: true
   prisma: true
 minimumReleaseAgeExclude:
-  - '@arcevo/facet-components@1.0.0'
-  - '@arcevo/facet-layout@1.0.0'
-  - '@arcevo/facet-tokens@1.0.0'
-  - '@arcevo/facet-components@1.0.1'
-  - '@arcevo/facet-layout@1.0.1'
-  - '@arcevo/facet-tokens@1.0.1'
-  - '@arcevo/facet-components@1.0.2'
-  - '@arcevo/facet-layout@1.0.2'
-  - '@arcevo/facet-auth@1.0.2'
-  - '@arcevo/facet-sdk@1.0.1'
+  # Pinned @fusorb/facet-* workspace versions (latest stable). Exempt so
+  # pnpm's minimumReleaseAge gate doesn't block fresh publishes on install.
+  - '@fusorb/facet-components@3.1.0'
+  - '@fusorb/facet-layout@1.6.0'
+  - '@fusorb/facet-tokens@1.5.0'
+patchedDependencies:
+  spawn-command: patches/spawn-command.patch

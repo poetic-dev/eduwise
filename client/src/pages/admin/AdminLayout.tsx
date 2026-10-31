@@ -1,7 +1,7 @@
 import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import BrandLogo from "@/components/BrandLogo";
-import { Button, ThemeToggle } from "@arcevo/facet-components";
+import { Button, ThemeToggle } from "@fusorb/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import { api } from "@/api";
 
@@ -53,14 +53,14 @@ export default function AdminLayout() {
       {/* Sidebar: fixed on desktop, scrolls independently of the content */}
       <aside className="hidden md:flex fixed inset-y-0 left-0 w-60 flex-col border-r bg-muted/30 z-30">
         <div className="flex items-center gap-2 px-4 py-4 border-b">
-          <Link to="/" className="flex items-center gap-2" aria-label="StreamWise home">
+          <Link to="/" className="flex items-center gap-2" aria-label="EduWise home">
             <BrandLogo className="h-9 w-9" />
             <div>
               <p className="text-sm font-bold text-foreground leading-tight">
                 {isAdmin ? "Admin Console" : "Staff Console"}
               </p>
               <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
-                StreamWise DSS · {role}
+                EduWise DSS · {role}
               </p>
             </div>
           </Link>
@@ -121,7 +121,7 @@ export default function AdminLayout() {
 
       {/* Mobile top bar: brand (→ landing), theme toggle, logout */}
       <div className="sticky top-0 z-30 flex items-center justify-between border-b border-border bg-background/95 px-4 py-2 backdrop-blur md:hidden">
-        <Link to="/" className="flex items-center gap-2" aria-label="StreamWise home">
+        <Link to="/" className="flex items-center gap-2" aria-label="EduWise home">
           <BrandLogo className="h-7 w-7" />
           <span className="text-sm font-bold text-foreground">
             {isAdmin ? "Admin Console" : "Staff Console"}

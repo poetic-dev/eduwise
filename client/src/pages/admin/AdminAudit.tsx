@@ -10,7 +10,7 @@ import { DataTable,
   CardContent,
   CardHeader,
   CardTitle,
-  EmptyState, Spinner } from "@arcevo/facet-components";
+  EmptyState, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon from "../../icons.generated.tsx";
 import type { AuditLogRow } from "@/types";
 

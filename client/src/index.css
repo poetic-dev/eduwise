@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 /* ── facet design tokens (OKLCH CSS custom properties) ─────── */
-@import "@arcevo/facet-tokens/tokens.css";
+@import "@fusorb/facet-tokens/tokens.css";
 
 /* ── Tailwind v4 theme extension (maps CSS vars → utilities) ─ */
-@import "@arcevo/facet-tokens/tailwind.css";
+@import "@fusorb/facet-tokens/tailwind.css";
 
-/* ── StreamWise theme (fonts, stream colours, scanner hints) ─ */
+/* ── EduWise theme (fonts, stream colours, scanner hints) ─ */
 @import "./tailwind.css";
 
 @layer base {

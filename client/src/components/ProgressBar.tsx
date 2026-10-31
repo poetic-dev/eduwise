@@ -1,4 +1,4 @@
-import { Progress } from "@arcevo/facet-components";
+import { Progress } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 interface ProgressBarProps {

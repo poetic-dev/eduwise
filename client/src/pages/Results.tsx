@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
-import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
-} from "recharts";
 import { toast } from "sonner";
 import { api } from "@/api";
 import StreamCard from "@/components/StreamCard";
@@ -10,7 +7,7 @@ import ConfidenceGauge from "@/components/ConfidenceGauge";
 import GuidanceInsights from "@/components/GuidanceInsights";
 import { getApiErrorMessage } from "@/api/errors";
 import type { JambCourse, JambValidationResult, RecommendationDetailResponse, RecommendationResult, Stream } from "@/types/index";
-import { Button, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner } from "@arcevo/facet-components";
+import { Button, Card, CardContent, Chart, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Alert, AlertDescription, Spinner } from "@fusorb/facet-components";
 import GeneratedIcon from "../icons.generated.tsx";
 
 const STREAM_COLORS: Record<Stream, string> = {
@@ -222,29 +219,20 @@ export default function Results() {
             <p className="text-xs text-muted-foreground mb-4">
               Weighted scores × 100. Higher is a stronger match
             </p>
-            <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={chartData} layout="vertical" margin={{ left: 20, right: 30 }}>
-                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                <XAxis
-                  type="number"
-                  domain={[0, 100]}
-                  tickFormatter={(v: number) => v.toFixed(0)}
-                  tick={{ fontSize: 11 }}
-                />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  tick={{ fontSize: 12, fontWeight: 600 }}
-                  width={90}
-                />
-                <Tooltip formatter={(v: number) => [`${v.toFixed(2)}`, "SAW Score ×100"]} />
-                <Bar dataKey="score" radius={[0, 8, 8, 0]}>
-                  {chartData.map((entry) => (
-                    <Cell key={entry.name} fill={STREAM_COLORS[entry.name as Stream]} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
+            <Chart
+              x={chartData.map((d) => d.name)}
+              series={[{ id: "score", label: "SAW Score", data: chartData.map((d) => d.score) }]}
+              type="bar"
+              layout="horizontal"
+              yMin={0}
+              yMax={100}
+              height={200}
+              showLegend={false}
+              formatY={(n) => n.toFixed(0)}
+              formatTooltipValue={(value) => `${value.toFixed(2)}`}
+              colors={{ chart: chartData.map((d) => STREAM_COLORS[d.name as Stream]) }}
+              className="w-full"
+            />
           </CardContent>
         </Card>
 

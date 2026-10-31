@@ -1,0 +1,19 @@
+diff --git a/lib/spawn-command.js b/lib/spawn-command.js
+index 24d56ab4583776283660ac9527262e3947fc7871..41803cda3d9f75ed82bc68be0c12254ebb4ab259 100644
+--- a/lib/spawn-command.js
++++ b/lib/spawn-command.js
+@@ -1,4 +1,4 @@
+-var util = require('util');
++// var util = require('util'); // removed: no longer needed after patch
+ var spawn = require('child_process').spawn;
+ 
+ module.exports = function (command, options) {
+@@ -6,7 +6,7 @@ module.exports = function (command, options) {
+   if (process.platform === 'win32') {
+     file = 'cmd.exe';
+     args = ['/s', '/c', '"' + command + '"'];
+-    options = util._extend({}, options);
++    options = Object.assign({}, options);
+     options.windowsVerbatimArguments = true;
+   }
+   else {

@@ -46,7 +46,7 @@ export const guestLogin = asyncHandler(async (_req: Request, res: Response) => {
   const token = jwt.sign(
     {
       id: "guest",
-      email: "guest@streamwise.app",
+      email: "guest@eduwise.app",
       fullName: "Guest Reviewer",
       role: "GUEST",
     },
@@ -59,7 +59,7 @@ export const guestLogin = asyncHandler(async (_req: Request, res: Response) => {
     student: {
       id: "guest",
       fullName: "Guest Reviewer",
-      email: "guest@streamwise.app",
+      email: "guest@eduwise.app",
       role: "GUEST",
     },
     guest: true,
