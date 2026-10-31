@@ -89,7 +89,7 @@ export const getAnalytics = asyncHandler(async (_req: Request, res: Response) =>
   ]);
 
   // Stream distribution, keyed by the display Stream type ("Science" etc.)
-  // — the same convention the client's STREAM_LABELS/STREAM_COLORS expect,
+  // - the same convention the client's STREAM_LABELS/STREAM_COLORS expect,
   // via the shared ENUM_TO_STREAM bridge (see domain.ts). Do not key this
   // by the raw AcademicStream enum; that's the bug that shipped last time.
   const streamDistribution: Record<Stream, number> = {
@@ -156,7 +156,7 @@ export const getAnalytics = asyncHandler(async (_req: Request, res: Response) =>
     };
   });
 
-  // Average weighted academic score per reported stream — same
+  // Average weighted academic score per reported stream - same
   // ENUM_TO_STREAM conversion, for the same reason.
   const avgAcademicPerStream = avgScores
     .filter((r) => r.currentStream !== null)

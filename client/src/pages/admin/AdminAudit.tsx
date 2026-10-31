@@ -61,23 +61,23 @@ const COLUMNS: DataTableColumn<AuditLogRow>[] = [
   {
     key: "student",
     header: "Target",
-    accessor: (log) => (log.student && log.student.id !== log.actorId ? log.student.fullName : "—"),
+    accessor: (log) => (log.student && log.student.id !== log.actorId ? log.student.fullName : "-"),
     cell: (log) =>
       log.student && log.student.id !== log.actorId ? (
         <span className="text-sm text-foreground">{log.student.fullName}</span>
       ) : (
-        <span className="text-sm text-muted-foreground">—</span>
+        <span className="text-sm text-muted-foreground">-</span>
       ),
   },
   {
     key: "details",
     header: "Details",
-    accessor: (log) => log.details ?? "—",
+    accessor: (log) => log.details ?? "-",
     cell: (log) =>
       log.details ? (
         <span className="text-sm text-muted-foreground">{log.details}</span>
       ) : (
-        <span className="text-sm text-muted-foreground">—</span>
+        <span className="text-sm text-muted-foreground">-</span>
       ),
     sortable: false,
   },

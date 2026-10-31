@@ -16,7 +16,7 @@ const dest = join(tmpdir(), "zisi-load-min");
 const entry = join(dest, "api.js");
 
 if (!existsSync(entry)) {
-  console.error("Missing extracted entry — run the tar extraction first.");
+  console.error("Missing extracted entry - run the tar extraction first.");
   process.exit(1);
 }
 

@@ -109,8 +109,8 @@ export const getRecommendation = asyncHandler(async (req: Request, res: Response
   const studentId = req.student!.id;
 
   // P0-4a: server-side consent gate (defense-in-depth). requireConsent()
-  // middleware now gates /profile/scores, /riasec/submit, and /bfi/submit —
-  // the actual data-collection endpoints — so this check is a second layer
+  // middleware now gates /profile/scores, /riasec/submit, and /bfi/submit -
+  // the actual data-collection endpoints - so this check is a second layer
   // rather than the sole backstop it was before. See auth.middleware.ts.
   const student = await prisma.student.findUnique({
     where: { id: studentId },

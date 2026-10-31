@@ -12,7 +12,7 @@
  * dynamic `import()` INSIDE the handler, where await is legal.
  * The server workspace is `"type": "module"` and the compiled app is ESM,
  * so a synchronous `require()` would crash with "Cannot require() ES
- * Module in a cycle" — dynamic import is the correct bridge.
+ * Module in a cycle" - dynamic import is the correct bridge.
  *
  * ENV: `netlify dev` runs functions with the CWD at the repo root, not
  * `server/`, so the app's `import "dotenv/config"` would look for `.env` in

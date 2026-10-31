@@ -173,7 +173,7 @@ derived `emotionalStabilityScore`.
   `buildCommand = "pnpm build"` (tsc -b && vite build), `outputDirectory =
   "dist"`, the SPA rewrite, and security headers. The Root Directory is set
   to `client` in the Vercel dashboard (Project → Settings → General), so the
-  config file must live at `client/vercel.json` — a repo-root `vercel.json`
+  config file must live at `client/vercel.json` - a repo-root `vercel.json`
   is ignored.
 - **Server → Netlify** as a serverless function. `netlify.toml` sets
   `build = "pnpm --filter server build"`, publish dir `public`, functions dir

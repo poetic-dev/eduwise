@@ -1,4 +1,4 @@
-# Netlify configuration — API-only deployment of the Express server.
+# Netlify configuration - API-only deployment of the Express server.
 # The Vite client lives on Vercel (see vercel.json). This site ONLY hosts
 # the serverless API via Netlify Functions.
 

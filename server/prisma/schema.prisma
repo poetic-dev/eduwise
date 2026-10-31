@@ -364,7 +364,7 @@ model SubjectScore {
 
   subject Subject
   level   AcademicLevel // JSS3 or SS1
-  score   Float // raw percentage 0–100
+  score   Float // raw percentage 0-100
 
   recordedAt DateTime @default(now())
 
@@ -398,7 +398,7 @@ model RiasecProfile {
   /// Holland three-letter summary code, e.g. "ISR", "ECR".
   summaryCode String @default("")
 
-  /// Pre-computed stream affinities (normalized 0–1), used directly in
+  /// Pre-computed stream affinities (normalized 0-1), used directly in
   /// the SAW scoring step without re-querying response rows each time.
   scienceAffinity    Float @default(0) // (I + R) / maxCombinedScore
   humanitiesAffinity Float @default(0) // (A + S) / maxCombinedScore
@@ -410,16 +410,16 @@ model RiasecProfile {
   @@map("riasec_profiles")
 }
 
-/// Raw per-item RIASEC responses (48 items, Likert 1–5).
+/// Raw per-item RIASEC responses (48 items, Likert 1-5).
 /// Retained for re-scoring, audit, and the 100-profile validation study (§3.8).
 model RiasecResponse {
   id        String  @id @default(uuid())
   studentId String
   student   Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
 
-  questionId Int // 1–48, maps to the validated RIASEC instrument
+  questionId Int // 1-48, maps to the validated RIASEC instrument
   type       RiasecType // R | I | A | S | E | C
-  value      Int // Likert 1–5
+  value      Int // Likert 1-5
 
   /// Instrument version (e.g. "riasec-v1") : stamped so a future item-set
   /// change cannot corrupt historical responses (spec-required).
@@ -454,7 +454,7 @@ model PersonalityProfile {
   studentId String  @unique
   student   Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
 
-  opennessScore          Float @default(0) // normalized 0–100
+  opennessScore          Float @default(0) // normalized 0-100
   conscientiousnessScore Float @default(0)
   extraversionScore      Float @default(0)
   agreeablenessScore     Float @default(0)
@@ -471,7 +471,7 @@ model PersonalityProfile {
   @@map("personality_profiles")
 }
 
-/// Raw per-item BFI-20 responses (20 items, Likert 1–5).
+/// Raw per-item BFI-20 responses (20 items, Likert 1-5).
 /// reverseKeyed = true means the item must be reverse-scored before
 /// computing the trait sub-total.
 model BfiResponse {
@@ -479,10 +479,10 @@ model BfiResponse {
   studentId String
   student   Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
 
-  questionId   Int // 1–20, maps to the BFI-20 instrument
+  questionId   Int // 1-20, maps to the BFI-20 instrument
   trait        PersonalityTrait
   reverseKeyed Boolean          @default(false)
-  value        Int // Likert 1–5 (raw, before any reversal)
+  value        Int // Likert 1-5 (raw, before any reversal)
 
   /// Instrument version (e.g. "bfi-v1") : stamped so a future item-set
   /// change cannot corrupt historical responses (spec-required).
@@ -513,9 +513,9 @@ model RecommendationLog {
 
   /// AHP-SAW outputs (§3.5.4)
   topStream   AcademicStream
-  vScience    Float // SAW Vᵢ for SCIENCE   (0–1)
-  vHumanities Float // SAW Vᵢ for HUMANITIES (0–1)
-  vBusiness   Float // SAW Vᵢ for BUSINESS  (0–1)
+  vScience    Float // SAW Vᵢ for SCIENCE   (0-1)
+  vHumanities Float // SAW Vᵢ for HUMANITIES (0-1)
+  vBusiness   Float // SAW Vᵢ for BUSINESS  (0-1)
 
   /// Confidence Level (§3.5.4): CL = (V_max / ΣVᵢ) × 100, then rescaled.
   confidenceLevel Float

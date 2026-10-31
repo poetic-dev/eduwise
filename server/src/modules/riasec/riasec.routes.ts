@@ -7,6 +7,6 @@ import { riasecSubmitSchema } from "@/validators/schemas.js";
 export const riasecRoutes = Router();
 
 riasecRoutes.get("/questions", getQuestions); // public - no auth needed
-// requireConsent: real psychometric data collection — see auth.middleware.ts.
+// requireConsent: real psychometric data collection - see auth.middleware.ts.
 riasecRoutes.post("/submit", authenticateToken, requireRole(UserRole.STUDENT), requireConsent(), validateBody(riasecSubmitSchema), submitRIASEC);
 riasecRoutes.get("/", authenticateToken, requireRole(UserRole.STUDENT), getRIASEC);

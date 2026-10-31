@@ -60,3 +60,5 @@
 - Prefers page components to stay thin shells: lengthy landing/layout composition (state, handlers, and the layout JSX) should be extracted into a dedicated component file (e.g., `components/landing/LandingPage.tsx`) reusing the component structure that already exists, leaving the page file as a thin re-export so routing stays untouched — "let us split... into another file... let cleanup and fully implement." Confidence: 0.65
 - Expects refactors discussed in earlier sessions to be followed through to completion without further check-ins: when the user asks "did you finish this...???" or simply replies "continue", they want the agent to check the actual current state (what exists, what's already wired up) and then execute the full change end-to-end autonomously (create the new file, rewire routing, delete obsolete files, verify, commit, push) rather than treating it as a brand-new request, stopping mid-way, or pausing for confirmation. Confidence: 0.7
 
+- Prefers charts to include enough padding so axis/category labels are fully visible and not clipped. Confidence: 0.7
+

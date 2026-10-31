@@ -55,7 +55,7 @@ export function requireRole(...roles: UserRole[]): (req: Request, res: Response,
  * checks token + role, so a student whose consent save failed, or who
  * deep-links straight to /scores, /riasec, or /personality, could submit
  * real academic scores and psychometric responses with no consent on
- * record — only getting blocked at the final /recommend call. This
+ * record - only getting blocked at the final /recommend call. This
  * middleware closes that gap at the actual point of data collection.
  *
  * Does a fresh DB read rather than trusting the JWT payload: consent status

@@ -23,7 +23,7 @@ SS2 students using an AHP-SAW multi-criteria decision engine.
   hero uses `AnimatedButton`, `GradientText`, `FadeUpText`,
   `HoverScaleCard`, `SplitText`. Hand-rolled wrappers: (`ProgressBar`,
   `ConfidenceGauge`, `GuidanceInsights`, `StreamCard`, `BrandLogo`,
-  `SiteNav`, `AccountMenu`). `ThemeToggle` and `PasswordInput` deleted —
+  `SiteNav`, `AccountMenu`). `ThemeToggle` and `PasswordInput` deleted -
   facet 1.11.0 now ships both.
 - **Engine:** pure TS modules in `server/src/engine/` (AHP, SAW, RIASEC, BFI,
   confidence, jamb, rescore) : zero DB/HTTP coupling. Never import Prisma or
@@ -31,7 +31,7 @@ SS2 students using an AHP-SAW multi-criteria decision engine.
   (P0-3e): Science = O+C+ES, Humanities = O+A+ES, Business = E+C+ES, where
   ES (Emotional Stability) = 100 − neuroticism. See `saw.ts`.
 - **Package manager:** pnpm workspaces (client + server). The client keeps
-  its domain enums LOCAL in `client/src/types/index.ts` — it does NOT import
+  its domain enums LOCAL in `client/src/types/index.ts` - it does NOT import
   from the server workspace. That export-independence is why the Vercel
   static build has zero coupling to `prisma generate`.
 
@@ -41,7 +41,7 @@ SS2 students using an AHP-SAW multi-criteria decision engine.
    truth for how the repo works. There is no `.agent/` directory anymore
    (it was gitignored and removed); session scratch goes in `todo.txt` at
    the repo root (kept untracked). If you reference `.agent/output.txt` you
-   are reading stale docs — fix the doc.
+   are reading stale docs - fix the doc.
 2. **Before writing any code, check:**
    - Does the route/controller/module already exist? (`server/src/modules/*`,
      mounted in `server/src/app.ts`)
@@ -96,7 +96,7 @@ rules:
   `pnpm seed:roles` (demo logins for supervisors testing the research build).
 - **Role-aware client routing:** `STUDENT` → assessment flow;
   `COUNSELOR` / `SCHOOL_ADMIN` / `ADMIN` → `/admin` (read-only console for
-  non-ADMIN client-side; the server is the real gate — `/admin/export/csv`
+  non-ADMIN client-side; the server is the real gate - `/admin/export/csv`
   and `/admin/rescore/:studentId` are `requireRole(ADMIN)`).
 - arc-id (`@fusorb/facet-auth` + `@fusorb/facet-sdk`) is the **future**
   canonical identity system, NOT wired in yet. Do not add it until
@@ -135,8 +135,8 @@ rules:
   guards (deep-linking to a later step : the server POSTs are the
   enforcement today). Then P2 (counselor portal depth, admin CRUD, CSV/PDF
   export polish, auth hardening, docs).
-- **Done (2026-09-02 — facet utilization audit):** Deleted hand-rolled
-  `ThemeToggle.tsx` and `PasswordInput.tsx` — facet-components 1.11.0 now
+- **Done (2026-09-02 - facet utilization audit):** Deleted hand-rolled
+  `ThemeToggle.tsx` and `PasswordInput.tsx` - facet-components 1.11.0 now
   ships a single-button `ThemeToggle` and `PasswordInput` with built-in eye
   toggle. Replaced 22 hand-rolled loading spinners with facet `Spinner`
   (16 files). Replaced 3 raw `<button>` elements with facet `Button`
@@ -145,7 +145,7 @@ rules:
   `AnimatedButton` CTAs, `HoverScaleCard` on feature/stat cards,
   `SplitText` on section headings. Enhanced facet package (avatar.tsx:
   `UserAvatar.roleBadge`; footer.tsx: `Footer.renderLink` for SPA links).
-  `AccountMenu` and `LandingFooter` remain hand-rolled — now unblocked for
+  `AccountMenu` and `LandingFooter` remain hand-rolled - now unblocked for
   migration to the enhanced `UserAvatar` and `Footer`.
 
 ## File naming

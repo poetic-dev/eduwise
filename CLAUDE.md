@@ -135,7 +135,7 @@ to the user for confirmation that they have the right to display it
     recommendation only), that it does not replace a qualified guidance
     counsellor, and that the person confirms they are voluntarily
     participating in an academic project
-  - 3–4 individual `Checkbox` items (not one bundled checkbox), each
+  - 3-4 individual `Checkbox` items (not one bundled checkbox), each
     tied to one specific consent point, e.g.:
     - "I understand this is a final-year academic project, not an
       official LASU, NERDC, or JAMB service."
